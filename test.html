@@ -1,0 +1,153 @@
+<html>
+   <head>
+      <title>Test</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style type="text/css">
+         <!-- 
+            .navbar {
+            	box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+            	font-family: Assistant,sans-serif;
+            	height: 40px;
+            }
+            
+            .navbar ul { 
+            	margin: 0; 
+            	padding: 5px; 
+            	list-style-type: none; 
+            	text-align: center;
+            } 
+             
+            .navbar ul li {  
+            	display: inline; 
+            } 
+             
+            .navbar ul li a { 
+            	text-decoration: none; 
+            	padding: 2px; 
+            	color: #000; 
+            	background-color: #fff;
+            } 
+            
+            .navbar ul li a:hover { 
+            	color: #fff; 
+            	background-color: rgba(0,0,0,.125);
+            	cursor: pointer;
+            } 
+            
+            .body{
+            	padding: 50px;
+            }
+			
+            #content {
+              width: 100%;
+              padding: 50px 0;
+              text-align: center;
+              background-color: rgba(0,0,0,.125);
+              font-family: Assistant,sans-serif;
+            }
+            
+            .footer {
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              background-color: rgba(0,0,0,.125);
+              color: white;
+              text-align: center;
+            }
+            
+            .thumb:hover {
+				cursor: pointer;
+            }
+            
+            input[type=radio]:hover {
+				cursor: pointer;
+            } 
+            --> 
+      </style>
+   </head>
+   <body>
+      <div class="navbar">
+         <ul>
+            <u>Change theme:</u> 
+            <li><a href="#" onclick="changeColor('red');" >Red</a></li>
+            <li><a href="#" onclick="changeColor('blue');">Blue</a></li>
+            <li><a href="#" onclick="changeColor('yellow');">Yellow</a></li>
+            <li><a href="#" onclick="changeColor('green');">Green</a></li>
+            <li><a href="#" onclick="changeColor('brown');">Brown</a></li>
+         </ul>
+      </div>
+      <div class="body">
+         <div id="content">
+            <h3>The future of industry is digital. Are you ready?</h3>
+            <p>With Test as an IIoT partner, you can look calmly into the future.</p>
+            <br />
+            <br />
+            <div>
+               <div >
+                  <h3>Our recommendation for all plant and machine builders:</h3>
+                  <input type="radio" name="recommendation" value="dashboarding_content" onchange="getValue(this)" checked>
+                  <label for="dashboarding_content">Dashboarding</label>
+                  <input type="radio"  name="recommendation" value="automation_content" onchange="getValue(this)">
+                  <label for="automation_content">Automation Framework</label>
+                  <input type="radio" name="recommendation"  value="optimization_content" onchange="getValue(this)">
+                  <label for="optimization_content">Process Optimization</label>
+               </div>
+               <div>
+                  <p class="recommendation" id="rec_dashboarding_content">
+                     With our dashboarding tool you can generate data from all your machines and systems and visualize it in a uniform overview.
+                  </p>
+                  <p class="recommendation" id="rec_automation_content" hidden>
+                     In digital tests, processes are run through virtually and thus conclusions for the production process are obtained.
+                  </p>
+                  <p class="recommendation" id="rec_optimization_content" hidden>
+                     Analyze the technical and organizational availability of your machines in order to optimally design manufacturing and production processes. 
+                  </p>
+               </div>
+               </br>
+               </br>
+               <div>
+                  <i onclick="updateThumb(this)" class="fa thumb"><b id="thumbText">Like us? (67.589)</b></i>
+               </div>
+            </div>
+         </div>
+         <div class="footer">
+            <p id="footer-text">&copy; test.io</p>
+         </div>
+      </div>
+      <script>
+         function changeColor(color) {
+           var content = document.getElementById("content");
+           var footerText = document.getElementById("footer-text");
+           if (color) {
+              content.style.backgroundColor  = color;
+         	  footerText.style.color = color;
+         	  
+           } else {
+            content.style.backgroundColor = 'rgba(0,0,0,.125)';
+           	footerText.style.color = 'white';
+           }
+         }
+         
+         function getValue(elementClass) {
+         [].forEach.call(document.querySelectorAll('.recommendation'), function (el) {
+         el.hidden  = true;
+         });
+         
+         var element = document.getElementById('rec_' + elementClass.value);
+         element.hidden  = false;
+         }
+         
+         function updateThumb(element) {
+         if(element.classList.contains('fa-thumbs-up')){
+         element.classList.remove("fa-thumbs-up");
+         document.getElementById('thumbText').innerText = 'Like us? (67.589)';
+         }else{
+         element.classList.toggle("fa-thumbs-up");
+         document.getElementById('thumbText').innerText = '67.590';
+         }
+         
+         }
+      </script>
+   </body>
+</html>
