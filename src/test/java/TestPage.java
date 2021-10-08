@@ -39,7 +39,7 @@ public class TestPage {
     }
 
     /**
-     * Ожидаем пояление текста рекомендации в блоке context
+     * Ожидаем появление текста рекомендации в блоке context
      */
     public void waitRecommendationsChange(String expectedText){
         new WebDriverWait(driver, 10)
@@ -61,7 +61,7 @@ public class TestPage {
     }
 
     /**
-     * Ожиданние применения лайка
+     * Ожидаем применения лайка
      */
     public void waitThumbUpApp() {
         new WebDriverWait(driver, 10)
